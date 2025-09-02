@@ -19,7 +19,7 @@ export const DATA = {
   name: "Kundan",
   title: "Backend Dev",
   tagline:
-    "I design, build, and scale web apps end‑to‑end. 3+ years across Node.js, Larvel, Python, MongoDB, MySQL.",
+    "I design, build, and scale web apps end‑to‑end. 3+ years across Node.js, Laravel, Python, MongoDB, MySQL.",
   location: "Chandigarh, India (IST)",
   email: "kundanpune220@gmail.com",
   socials: [
