@@ -14,7 +14,13 @@ export default function Navbar({ mode, toggleMode }) {
   ];
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-neutral-900/70 border-b">
+    <header
+      className={
+        mode === "dark"
+          ? "dark:supports-[backdrop-filter]:bg-neutral-900/70 border-b"
+          : "sticky top-0 z-50 backdrop-blur border-b supports-[backdrop-filter]:bg-white/70"
+      }
+    >
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex h-14 items-center justify-between">
           <a href="#home" className="font-bold tracking-tight">
@@ -48,7 +54,11 @@ export default function Navbar({ mode, toggleMode }) {
               onClick={toggleMode}
               className="inline-flex h-9 w-9 items-center justify-center rounded-xl border hover:shadow-sm"
             >
-              {mode === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              {mode === "dark" ? (
+                <Sun className="h-4 w-4" />
+              ) : (
+                <Moon className="h-4 w-4" />
+              )}
             </button>
             <button className="md:hidden" onClick={() => setOpen(!open)}>
               {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

@@ -10,8 +10,6 @@ import Writing from "./components/Writing";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
-
-
 // Simple badge
 
 export default function PortfolioApp() {
@@ -23,23 +21,41 @@ export default function PortfolioApp() {
       window.matchMedia("(prefers-color-scheme: dark)").matches,
     []
   );
-  const [mode, setMode] = useState(
-    () =>
-      (typeof window !== "undefined" && localStorage.getItem("theme")) ||
-      (prefersDark ? "dark" : "light")
-  );
+  const [mode, setMode] = useState(null); // start with null, avoid mismatch
 
+  // set initial mode after mount
   useEffect(() => {
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    const saved = localStorage.getItem("theme");
+    setMode(saved || (prefersDark ? "dark" : "light"));
+  }, []);
+
+  // apply mode changes to <html>
+  useEffect(() => {
+    if (!mode) return;
     const root = document.documentElement;
     if (mode === "dark") root.classList.add("dark");
     else root.classList.remove("dark");
     localStorage.setItem("theme", mode);
   }, [mode]);
 
-  const toggleMode = () => setMode((m) => (m === "dark" ? "light" : "dark"));
+  const toggleMode = () => {
+    setMode((m) => (m === "dark" ? "light" : "dark"));
+    console.log('changed',{mode})
+  };
+
+  if (!mode) return null; // prevent flash on first load
 
   return (
-    <div className="min-h-screen bg-white text-neutral-900 antialiased dark:bg-neutral-950 dark:text-neutral-50">
+    <div
+      className={
+        mode === "dark"
+          ? " dark:bg-neutral-950 dark:text-neutral-50"
+          : "min-h-screen bg-white text-neutral-900 antialiased"
+      }
+    >
       <Navbar mode={mode} toggleMode={toggleMode} />
       <main className="mx-auto max-w-6xl px-4">
         <Hero />
@@ -56,4 +72,3 @@ export default function PortfolioApp() {
     </div>
   );
 }
-
