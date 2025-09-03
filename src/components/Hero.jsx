@@ -1,7 +1,37 @@
 import { motion } from "framer-motion";
 import { DATA } from "../constants";
-import { Boxes, ChevronRight, Code2, Database, Layers, Mail, MapPin, ServerCog, TerminalSquare } from "lucide-react";
+import {
+  Boxes,
+  ChevronRight,
+  Database,
+  Layers,
+  Mail,
+  MapPin,
+  ServerCog,
+  TerminalSquare,
+} from "lucide-react";
+
 export default function Hero() {
+  const skills = [
+    { icon: Database, label: "MongoDB (3+ yrs)" },
+    { icon: TerminalSquare, label: "Python (6+ mos)" },
+    { icon: Boxes, label: "React / React Native (Basic level 4+ mos)" },
+    { icon: ServerCog, label: "Node.js (3+ yrs)" },
+    { icon: Layers, label: "Laravel (2+ yrs)" },
+  ];
+  
+  const showSkills = () => {
+    return (
+      <ul className="space-y-2 text-sm opacity-90">
+        {skills.map(({ icon: Icon, label }, idx) => (
+          <li key={idx} className="flex items-center gap-2">
+            <Icon className="h-4 w-4" /> {label}
+          </li>
+        ))}
+      </ul>
+    );
+  };
+
   return (
     <section id="home" className="pt-12">
       <div className="mx-auto max-w-6xl px-4">
@@ -39,28 +69,18 @@ export default function Hero() {
             </div>
           </div>
           <div className="md:col-span-2">
-            <div className="relative overflow-hidden rounded-2xl border p-6">
+            <motion.div
+              whileHover={{ y: -4 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="relative overflow-hidden rounded-2xl border p-6"
+            >
               <div className="mb-4 flex items-center gap-2 opacity-80">
                 <MapPin className="h-4 w-4" />
                 <span className="text-sm">{DATA.location}</span>
               </div>
-              <ul className="space-y-2 text-sm opacity-90">
-                <li className="flex items-center gap-2">
-                  <Database className="h-4 w-4" /> MongoDB (3+ yrs)
-                </li>
-                <li className="flex items-center gap-2">
-                  <TerminalSquare className="h-4 w-4" /> Python (6+ mos)
-                </li>
-                <li className="flex items-center gap-2">
-                  <Boxes className="h-4 w-4" /> React / React Native (Basic level 4+ mos)
-                </li>
-                <li className="flex items-center gap-2">
-                  <ServerCog className="h-4 w-4" /> Node.js (3+ yrs)
-                </li>
-                <li className="flex items-center gap-2">
-                  <Layers className="h-4 w-4" /> Laravel (2+ yrs)
-                </li>
-              </ul>
+
+              {showSkills()}
+
               <div className="mt-4 flex gap-3">
                 {DATA.socials.map((s) => (
                   <a
@@ -73,7 +93,7 @@ export default function Hero() {
                   </a>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

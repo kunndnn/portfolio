@@ -3,6 +3,7 @@ import { DATA } from "../constants";
 import { motion } from "framer-motion";
 import Tag from "./common/Tag";
 import { ExternalLink } from "lucide-react";
+
 export default function Projects() {
   return (
     <Section id="projects" title="Projects">

@@ -1,5 +1,3 @@
-import { DATA } from "../constants";
-
 export default function Footer() {
   return (
     <footer className="mt-16 border-t">

@@ -184,5 +184,5 @@ export const DATA = {
     },
   ],
   // --- CTA assets
-  resumeUrl: "./resume.pdf", // replace with actual resume file or Google Drive link
+  resumeUrl: "./Kundan_CV.pdf", // replace with actual resume file or Google Drive link
 };

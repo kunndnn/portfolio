@@ -41,7 +41,7 @@ export default function Navbar({ mode, toggleMode }) {
               download
               className="hidden md:inline-flex items-center gap-2 rounded-xl border px-3 py-1.5 text-sm hover:shadow-sm"
             >
-              <Download className="h-4 w-4" /> Resume
+              <Download className="h-4 w-4" /> CV
             </a>
             <button
               aria-label="Toggle dark mode"
@@ -74,7 +74,7 @@ export default function Navbar({ mode, toggleMode }) {
               download
               className="inline-flex items-center gap-2 rounded-xl border px-3 py-1.5 text-sm hover:shadow-sm"
             >
-              <Download className="h-4 w-4" /> Resume
+              <Download className="h-4 w-4" /> CV
             </a>
           </nav>
         )}

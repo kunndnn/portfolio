@@ -1,5 +1,5 @@
 import Section from './common/Section'
-import { DATA } from "../constants";
+import { motion } from "framer-motion";
 
 export default function About() {
   return (
@@ -19,14 +19,18 @@ export default function About() {
           </p>
         </div>
         <div className="md:col-span-1">
-          <div className="rounded-2xl border p-4">
+           <motion.div
+            whileHover={{ y: -4 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="rounded-2xl border p-4"
+          >
             <h3 className="mb-2 text-sm font-semibold tracking-wide">Highlights</h3>
             <ul className="space-y-2 text-sm opacity-90">
               <li>Built realtime chat apps</li>
               <li>Shipped dual CJS/ESM npm packages (Rollup)</li>
               <li>Build a webapp with some commonly used tools such as generating QR/Bar code, Image format conversion.</li>
             </ul>
-          </div>
+          </motion.div>
         </div>
       </div>
     </Section>
