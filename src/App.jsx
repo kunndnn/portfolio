@@ -14,26 +14,23 @@ import { useTheme } from "./theme-context";
 export default function PortfolioApp() {
   const { mode, toggleMode } = useTheme();
 
-  function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(";").shift();
-  }
-
   useEffect(() => {
+    // decide theme on mount
     const prefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches;
-    const saved = getCookie("theme");
+    const saved = localStorage.getItem("deviceTheme");
     const initialMode = saved ?? (prefersDark ? "dark" : "light");
     toggleMode(initialMode);
   }, []);
 
   useEffect(() => {
     if (!mode) return;
+
     const root = document.documentElement;
-    root.classList.toggle("dark", mode === "dark");
-    document.cookie = `theme=${mode}; path=/; max-age=600`;
+    root.classList.toggle("dark", mode === "dark"); // single line
+
+    localStorage.setItem("deviceTheme", mode);
   }, [mode]);
 
   if (!mode) return null; // prevent flash
