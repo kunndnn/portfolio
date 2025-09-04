@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect } from "react";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -6,47 +6,41 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
-import Writing from "./components/Writing";
+// import Writing from "./components/Writing";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-
 import { useTheme } from "./theme-context";
 
-// Simple badge
-
 export default function PortfolioApp() {
-  // Theme handling
   const { mode, toggleMode } = useTheme();
 
-  // set initial mode after mount
   useEffect(() => {
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
+    // decide theme on mount
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const saved = sessionStorage.getItem("theme");
-    toggleMode(saved || (prefersDark ? "dark" : "light"));
+    const initialMode = saved || (prefersDark ? "dark" : "light");
+    toggleMode(initialMode);
   }, []);
 
-  // apply mode changes to <html>
   useEffect(() => {
     if (!mode) return;
+
     const root = document.documentElement;
-    if (mode === "dark") root.classList.add("dark");
-    else root.classList.remove("dark");
+    root.classList.toggle("dark", mode === "dark"); // single line
+
     sessionStorage.setItem("theme", mode);
   }, [mode]);
 
-  if (!mode) return null; // prevent flash on first load
+  if (!mode) return null; // prevent flash
+
+  const appClasses =
+    mode === "dark"
+      ? "dark:bg-neutral-950 dark:text-neutral-50"
+      : "min-h-screen bg-white text-neutral-900 antialiased";
 
   return (
-    <div
-      className={
-        mode === "dark"
-          ? " dark:bg-neutral-950 dark:text-neutral-50"
-          : "min-h-screen bg-white text-neutral-900 antialiased"
-      }
-    >
-      <Navbar mode={mode} toggleMode={toggleMode} />
+    <div className={appClasses}>
+      <Navbar />
       <main className="mx-auto max-w-6xl px-4">
         <Hero />
         <div className="mt-12 grid gap-12">
@@ -57,7 +51,7 @@ export default function PortfolioApp() {
           {/* <Writing /> */}
           <Contact />
         </div>
-        <Footer mode={mode} />
+        <Footer />
       </main>
     </div>
   );
