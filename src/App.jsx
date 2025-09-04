@@ -10,26 +10,21 @@ import Writing from "./components/Writing";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
+import { useTheme } from "./theme-context";
+
 // Simple badge
 
 export default function PortfolioApp() {
   // Theme handling
-  const prefersDark = useMemo(
-    () =>
-      typeof window !== "undefined" &&
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches,
-    []
-  );
-  const [mode, setMode] = useState(null); // start with null, avoid mismatch
+  const { mode, toggleMode } = useTheme();
 
   // set initial mode after mount
   useEffect(() => {
     const prefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches;
-    const saved = localStorage.getItem("theme");
-    setMode(saved || (prefersDark ? "dark" : "light"));
+    const saved = sessionStorage.getItem("theme");
+    toggleMode(saved || (prefersDark ? "dark" : "light"));
   }, []);
 
   // apply mode changes to <html>
@@ -38,13 +33,8 @@ export default function PortfolioApp() {
     const root = document.documentElement;
     if (mode === "dark") root.classList.add("dark");
     else root.classList.remove("dark");
-    localStorage.setItem("theme", mode);
+    sessionStorage.setItem("theme", mode);
   }, [mode]);
-
-  const toggleMode = () => {
-    setMode((m) => (m === "dark" ? "light" : "dark"));
-    console.log('changed',{mode})
-  };
 
   if (!mode) return null; // prevent flash on first load
 
@@ -67,7 +57,7 @@ export default function PortfolioApp() {
           {/* <Writing /> */}
           <Contact />
         </div>
-        <Footer />
+        <Footer mode={mode} />
       </main>
     </div>
   );

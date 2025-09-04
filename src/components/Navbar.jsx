@@ -1,9 +1,11 @@
 import { Menu, X, Download, Moon, Sun } from "lucide-react";
 import { useState } from "react";
 import { DATA } from "../constants";
+import { useTheme } from "../theme-context";
 
-export default function Navbar({ mode, toggleMode }) {
+export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { mode, toggleMode } = useTheme();
 
   const links = [
     { id: "about", label: "About" },
@@ -15,11 +17,9 @@ export default function Navbar({ mode, toggleMode }) {
 
   return (
     <header
-      className={
-        mode === "dark"
-          ? "dark:supports-[backdrop-filter]:bg-neutral-900/70 border-b"
-          : "sticky top-0 z-50 backdrop-blur border-b supports-[backdrop-filter]:bg-white/70"
-      }
+      className={`sticky top-0 z-50 backdrop-blur border-b supports-[backdrop-filter]:bg-${
+        mode === "dark" ? "neutral-900/70" : "white-900/70"
+      }`}
     >
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex h-14 items-center justify-between">

@@ -1,10 +1,12 @@
 import Section from "./common/Section";
 import { DATA } from "../constants";
-import {motion} from 'framer-motion'
+import { motion } from "framer-motion";
+import { useTheme } from "../theme-context";
 
 export default function Skills() {
+  const { mode } = useTheme();
   const clamp01 = (n) => Math.max(0, Math.min(100, n));
-  
+
   return (
     <Section id="skills" title="Skills">
       <div className="grid gap-6 md:grid-cols-3">
@@ -31,9 +33,14 @@ export default function Skills() {
                         {/* {clamp01(s.level)}% */}
                       </span>
                     </div>
-                    <div className="h-2 rounded bg-black/5 dark:bg-white/10">
+                    <div className="">
                       <div
-                        className="h-2 rounded bg-black/70 dark:bg-white/80"
+                        className={`h-2 rounded ${
+                          mode === "dark"
+                            ? "dark:bg-white/80"
+                            : "bg-black/70"
+                        }`}
+                        // className=" bg-black/70 dark:bg-white/80"
                         style={{ width: `${clamp01(s.level)}%` }}
                       />
                     </div>
