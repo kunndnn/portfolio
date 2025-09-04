@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useLayoutEffect, useEffect } from "react";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -14,8 +14,8 @@ import { useTheme } from "./theme-context";
 export default function PortfolioApp() {
   const { mode, toggleMode } = useTheme();
 
-  useEffect(() => {
-    // decide theme on mount
+  // run before paint → no flicker
+  useLayoutEffect(() => {
     const prefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches;
@@ -24,16 +24,15 @@ export default function PortfolioApp() {
     toggleMode(initialMode);
   }, []);
 
+  // update <html> class + persist
   useEffect(() => {
     if (!mode) return;
 
     const root = document.documentElement;
-    root.classList.toggle("dark", mode === "dark"); // single line
+    root.classList.toggle("dark", mode === "dark");
 
     localStorage.setItem("deviceTheme", mode);
   }, [mode]);
-
-  if (!mode) return null; // prevent flash
 
   return (
     <div
