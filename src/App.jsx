@@ -1,5 +1,3 @@
-import { useLayoutEffect, useEffect } from "react";
-
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -12,27 +10,7 @@ import Footer from "./components/Footer";
 import { useTheme } from "./theme-context";
 
 export default function PortfolioApp() {
-  const { mode, toggleMode } = useTheme();
-
-  // run before paint → no flicker
-  useLayoutEffect(() => {
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    const saved = localStorage.getItem("deviceTheme");
-    const initialMode = saved ?? (prefersDark ? "dark" : "light");
-    toggleMode(initialMode);
-  }, []);
-
-  // update <html> class + persist
-  useEffect(() => {
-    if (!mode) return;
-
-    const root = document.documentElement;
-    root.classList.toggle("dark", mode === "dark");
-
-    localStorage.setItem("deviceTheme", mode);
-  }, [mode]);
+  const { mode } = useTheme();
 
   return (
     <div
