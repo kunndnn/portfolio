@@ -16,9 +16,11 @@ export default function PortfolioApp() {
 
   useEffect(() => {
     // decide theme on mount
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
     const saved = sessionStorage.getItem("theme");
-    const initialMode = saved || (prefersDark ? "dark" : "light");
+    const initialMode = saved ?? (prefersDark ? "dark" : "light");
     toggleMode(initialMode);
   }, []);
 
@@ -33,13 +35,14 @@ export default function PortfolioApp() {
 
   if (!mode) return null; // prevent flash
 
-  const appClasses =
-    mode === "dark"
-      ? "dark:bg-neutral-950 dark:text-neutral-50"
-      : "min-h-screen bg-white text-neutral-900 antialiased";
-
   return (
-    <div className={appClasses}>
+    <div
+      className={
+        mode === "dark"
+          ? "dark:bg-neutral-950 dark:text-neutral-50"
+          : "min-h-screen bg-white text-neutral-900 antialiased"
+      }
+    >
       <Navbar />
       <main className="mx-auto max-w-6xl px-4">
         <Hero />

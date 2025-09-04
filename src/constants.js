@@ -80,12 +80,12 @@ export const DATA = {
       period: "June 2024 – August 2025",
       bullets: [
         "Architected and shipped real‑time chat platform (Socket.io, MySQL).",
-        "Built Python automation desktop app for internal ops (PyAutoGUI, OpenCV).",
         "Created multi‑tenant admin panels with Laravel + MySQL + jQuery/AJAX.",
-        "Developed and Docker-deployed a Flask + Selenium automation solution for logging in and extracting structured data from websites.",
+        "Built Python automation desktop app for internal ops (PyAutoGUI, OpenCV).",
         "Integrated Google Vertex AI into Node.js project for advanced ML/AI capabilities.",
         "Developed a web scraping script using BeautifulSoup4 to extract vehicle metadata.",
         "Created voice AI Agent for calendar appointment booking with VAPI & n8n workflows",
+        "Developed and Docker-deployed a Flask + Selenium automation solution for logging in and extracting structured data from websites.",
       ],
     },
     {
