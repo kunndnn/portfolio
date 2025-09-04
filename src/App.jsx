@@ -19,7 +19,7 @@ export default function PortfolioApp() {
     const prefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches;
-    const saved = sessionStorage.getItem("theme");
+    const saved = localStorage.getItem("deviceTheme");
     const initialMode = saved ?? (prefersDark ? "dark" : "light");
     toggleMode(initialMode);
   }, []);
@@ -30,7 +30,7 @@ export default function PortfolioApp() {
     const root = document.documentElement;
     root.classList.toggle("dark", mode === "dark"); // single line
 
-    sessionStorage.setItem("theme", mode);
+    localStorage.setItem("deviceTheme", mode);
   }, [mode]);
 
   if (!mode) return null; // prevent flash
