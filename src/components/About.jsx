@@ -7,19 +7,15 @@ export default function About() {
       <div className="grid gap-6 md:grid-cols-3">
         <div className="md:col-span-2">
           <p className="leading-relaxed opacity-90">
-            I’m a pragmatic engineer who ships. I specialize in building
-            robust backends, frictionless UIs, and automated workflows. I love
-            clean abstractions, predictable deployments, and data‑driven product
-            decisions.
+            I’m a Backend Developer with strong expertise in Node.js and Laravel, building secure, scalable, and high-performing applications. My experience includes designing REST APIs, database architectures, authentication systems, and integrations, ensuring reliable backend solutions that power modern web applications.
           </p>
           <p className="mt-4 leading-relaxed opacity-90">
-            Recently, I’ve focused on scalable real‑time systems, modern React patterns
-            (hooks, Suspense, server components), and developer experience—DX that reduces
-            cognitive load and makes teams faster.
+            Alongside backend work, I have working knowledge of React.js and I’m actively improving my frontend skills to become a full-stack MERN developer (MongoDB, Express.js, React.js, Node.js).
+            I also have hands-on experience with Python automation and web scraping.
           </p>
         </div>
         <div className="md:col-span-1">
-           <motion.div
+          <motion.div
             whileHover={{ y: -4 }}
             transition={{ type: "spring", stiffness: 300 }}
             className="rounded-2xl border p-4"
