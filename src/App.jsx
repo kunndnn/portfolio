@@ -4,7 +4,7 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
-// import Writing from "./components/Writing";
+import Writing from "./components/Writing";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { useTheme } from "./theme-context";
@@ -28,7 +28,7 @@ export default function PortfolioApp() {
           <Skills />
           <Experience />
           <Projects />
-          {/* <Writing /> */}
+          <Writing />
           <Contact />
         </div>
         <Footer />

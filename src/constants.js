@@ -173,14 +173,9 @@ export const DATA = {
   // --- Writing
   posts: [
     {
-      title: "Taming Backpressure in Node.js Streams",
+      title: "Host react web app with github",
       date: "Aug 2025",
-      href: "https://yourblog.com/node-streams-backpressure",
-    },
-    {
-      title: "A Practical Guide to MongoDB Transactions",
-      date: "Aug 2025",
-      href: "https://yourblog.com/mongodb-transactions",
+      href: "https://kunndnn.github.io/blogs/#/post/host-react-app-with-github",
     },
   ],
   // --- CTA assets
