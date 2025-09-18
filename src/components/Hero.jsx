@@ -19,7 +19,7 @@ export default function Hero() {
     { icon: ServerCog, label: "Node.js (3+ yrs)" },
     { icon: Layers, label: "Laravel (2+ yrs)" },
   ];
-  
+
   const showSkills = () => {
     return (
       <ul className="space-y-2 text-sm opacity-90">
@@ -60,12 +60,12 @@ export default function Hero() {
               >
                 View Projects <ChevronRight className="h-4 w-4" />
               </a>
-              <a
-                href={`mailto:${DATA.email}`}
-                className="inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm font-medium hover:shadow-sm"
+              <span
+                onClick={() => location.href = `mailto:${DATA.email}`}
+                className="inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm font-medium hover:shadow-sm cursor-pointer"
               >
                 <Mail className="h-4 w-4" /> Contact
-              </a>
+              </span>
             </div>
           </div>
           <div className="md:col-span-2">
@@ -83,14 +83,14 @@ export default function Hero() {
 
               <div className="mt-4 flex gap-3">
                 {DATA.socials.map((s) => (
-                  <a
+                  <span
                     key={s.label}
-                    href={s.href}
+                    onClick={() => location.href = s.href}
                     aria-label={s.label}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl border hover:shadow-sm"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl border hover:shadow-sm cursor-pointer"
                   >
                     <s.icon className="h-5 w-5" />
-                  </a>
+                  </span>
                 ))}
               </div>
             </motion.div>

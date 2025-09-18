@@ -17,9 +17,11 @@ export default function Contact() {
           <ul className="space-y-2 text-sm opacity-90">
             {DATA.socials.map((s) => (
               <li key={s.label}>
-                <a href={s.href} className="inline-flex items-center gap-2">
+                <span
+                  onClick={() => location.href = s.href}
+                  className="inline-flex items-center gap-2 cursor-pointer">
                   <s.icon className="h-4 w-4" /> {s.label}
-                </a>
+                </span>
               </li>
             ))}
           </ul>

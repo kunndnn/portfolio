@@ -23,13 +23,13 @@ export default function Projects() {
             </div>
             <div className="mt-4 flex flex-wrap gap-3">
               {p.links.map((l) => (
-                <a
+                <span
                   key={l.href}
-                  href={l.href}
-                  className="inline-flex items-center gap-1 text-sm underline-offset-2 hover:underline"
+                  onClick={() => location.href = l.href}
+                  className="inline-flex items-center gap-1 text-sm underline-offset-2 hover:underline cursor-pointer"
                 >
                   {l.label} <ExternalLink className="h-3.5 w-3.5" />
-                </a>
+                </span>
               ))}
             </div>
           </motion.div>
