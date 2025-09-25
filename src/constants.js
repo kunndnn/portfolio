@@ -1,3 +1,4 @@
+import CV from "../src/assets/Kundan_CV.pdf";
 import {
   Github,
   Linkedin,
@@ -179,5 +180,5 @@ export const DATA = {
     },
   ],
   // --- CTA assets
-  resumeUrl: "./Kundan_CV.pdf", // replace with actual resume file or Google Drive link
+  resumeUrl: CV,
 };
