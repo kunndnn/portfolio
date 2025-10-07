@@ -80,13 +80,12 @@ export const DATA = {
       role: "Backend Developer",
       period: "June 2024 – August 2025",
       bullets: [
-        "Architected and shipped real‑time chat platform (Socket.io, MySQL).",
-        "Created multi‑tenant admin panels with Laravel + MySQL + jQuery/AJAX.",
-        "Built Python automation desktop app for internal ops (PyAutoGUI, OpenCV).",
-        "Integrated Google Vertex AI into Node.js project for advanced ML/AI capabilities.",
-        "Developed a web scraping script using BeautifulSoup4 to extract vehicle metadata.",
-        "Created voice AI Agent for calendar appointment booking with VAPI & n8n workflows",
-        "Developed and Docker-deployed a Flask + Selenium automation solution for logging in and extracting structured data from websites.",
+        "Developed real-time APIs and chat modules using Node.js, Express.js, and Socket.io, integrated with MongoDB, AWS S3 for file storage, and Twilio API for SMS notifications",
+        "Built multi-tenant admin panels using Laravel for the admin interface, role-based access control with MySQL, AWS S3 for file storage & Twilio API for SMS notifications.",
+        "Developed Python desktop automation app for internal operations using PyAutoGUI and OpenCV.",
+        "Deployed a Flask + Selenium solution in Docker to automate logins and extract structured web data.",
+        "Built web scraping scripts using BeautifulSoup4 to extract vehicle metadata.",
+        "Created voice AI agent for calendar booking using VAPI and n8n workflows.",
       ],
     },
     {
@@ -174,9 +173,19 @@ export const DATA = {
   // --- Writing
   posts: [
     {
-      title: "Host react web app with github",
+      title: "Host react web app with github.",
       date: "Aug 2025",
       href: "https://kunndnn.github.io/blogs/#/post/host-react-app-with-github",
+    },
+    {
+      title: "Node.js project structure.",
+      date: "Sept 2025",
+      href: "https://kunndnn.github.io/blogs/#/post/node-js-project-structure",
+    },
+    {
+      title: "Basics of docker.",
+      date: "Sept 2025",
+      href: "https://kunndnn.github.io/blogs/#/post/docker-basics",
     },
   ],
   // --- CTA assets
