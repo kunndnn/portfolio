@@ -8,6 +8,7 @@ import Writing from "./components/Writing";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { useTheme } from "./theme-context";
+import './App.css'
 
 export default function PortfolioApp() {
   const { mode } = useTheme();
