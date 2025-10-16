@@ -15,11 +15,8 @@ export default function PortfolioApp() {
 
   return (
     <div
-      className={
-        mode === "dark"
-          ? "dark:bg-neutral-950 dark:text-neutral-50"
-          : "min-h-screen bg-white text-neutral-900 antialiased"
-      }
+      className=
+      "min-h-screen bg-white text-neutral-900 antialiased dark:bg-neutral-950 dark:text-neutral-50"
     >
       <Navbar />
       <main className="mx-auto max-w-6xl px-4">
