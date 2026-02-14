@@ -13,9 +13,9 @@ import {
 
 export default function Hero() {
   const skills = [
-    { icon: Database, label: "MongoDB (3+ yrs)" },
+    { icon: Database, label: "MongoDB / MySQL (3+ yrs)" },
     { icon: TerminalSquare, label: "Python (6+ mos)" },
-    { icon: Boxes, label: "React / React Native (Basic level 4+ mos)" },
+    { icon: Boxes, label: "React / React Native (Basic level 6+ mos)" },
     { icon: ServerCog, label: "Node.js (3+ yrs)" },
     { icon: Layers, label: "Laravel (2+ yrs)" },
   ];

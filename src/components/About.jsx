@@ -24,7 +24,7 @@ export default function About() {
             <ul className="space-y-2 text-sm opacity-90">
               <li>Built realtime chat apps</li>
               <li>Shipped dual CJS/ESM npm packages (Rollup)</li>
-              <li>Build a webapp with some commonly used tools such as generating QR/Bar code, Image format conversion.</li>
+              <li>Build a WebApp with some commonly used tools such as generating QR/Bar code, Image format conversion.</li>
             </ul>
           </motion.div>
         </div>
