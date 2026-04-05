@@ -2,6 +2,7 @@ import Section from "./common/Section";
 import { DATA } from "../constants";
 import { motion } from "framer-motion";
 import { useTheme } from "../theme-context";
+import Card from "./common/Card";
 
 export default function Skills() {
   const { mode } = useTheme();
@@ -9,46 +10,42 @@ export default function Skills() {
 
   return (
     <Section id="skills" title="Skills">
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-3">
         {DATA.skills.map((group, i) => (
-          <motion.div
+          <Card
             key={i}
-            whileHover={{ y: -4 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="rounded-2xl border p-4"
+            whileHover={{ rotate: 0, scale: 1.02 }}
+            className="p-6"
+            style={{ transform: `rotate(${i % 2 === 0 ? -1 : 1}deg)` }}
           >
-            <div key={group.group} className="rounded-2xl p-4">
-              <h3 className="mb-3 text-sm font-semibold tracking-wide opacity-80">
-                {group.group}
-              </h3>
-              <ul className="space-y-4">
-                {group.items.map((s) => (
-                  <li key={s.name}>
-                    <div className="mb-1 flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <s.icon className="h-4 w-4 opacity-70" />
-                        <span className="text-sm">{s.name}</span>
+            <h3 className="mb-6 text-xl font-black uppercase font-mono bg-black text-white px-3 py-1 inline-block shadow-[4px_4px_0px_0px_var(--accent)]">
+              {group.group}
+            </h3>
+            <ul className="space-y-6">
+              {group.items.map((s) => (
+                <li key={s.name} className="group">
+                  <div className="mb-2 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 border-2 border-[var(--border)] bg-[var(--surface)] text-[var(--text)] group-hover:bg-[var(--accent-2)] group-hover:text-black transition-colors">
+                        <s.icon className="h-5 w-5" />
                       </div>
-                      <span className="text-xs opacity-70">
-                        {/* {clamp01(s.level)}% */}
-                      </span>
+                      <span className="font-bold uppercase tracking-tight">{s.name}</span>
                     </div>
-                    <div className="">
-                      <div
-                        className={`h-2 rounded ${
-                          mode === "dark"
-                            ? "dark:bg-white/80"
-                            : "bg-black/70"
-                        }`}
-                        // className=" bg-black/70 dark:bg-white/80"
-                        style={{ width: `${clamp01(s.level)}%` }}
+                  </div>
+                  {s.level && (
+                    <div className="border-2 border-[var(--border)] h-4 bg-[var(--surface)] shadow-[2px_2px_0px_0px_var(--shadow-color)] overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${clamp01(s.level)}%` }}
+                        transition={{ duration: 1, ease: "easeOut" }}
+                        className="h-full bg-[var(--accent-2)] border-r-2 border-[var(--border)]"
                       />
                     </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </Card>
         ))}
       </div>
     </Section>

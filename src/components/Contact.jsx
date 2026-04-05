@@ -1,31 +1,37 @@
 import Section from "./common/Section";
 import { DATA } from "../constants";
-import { motion } from "framer-motion";
+import Card from "./common/Card";
+import Button from "./common/Button";
 
 export default function Contact() {
   return (
     <Section id="contact" title="Contact">
-      <div>
-        <motion.div
-          whileHover={{ y: -4 }}
-          transition={{ type: "spring", stiffness: 300 }}
-          className="rounded-2xl border p-4"
+      <div className="max-w-2xl">
+        <Card
+          initial={{ rotate: -1 }}
+          whileInView={{ rotate: 0 }}
+          className="p-10 bg-[var(--accent-2)]"
         >
-          <div className="mb-2 text-sm font-semibold tracking-wide opacity-80">
-            Reach me
+          <div className="mb-8 text-3xl font-black uppercase font-mono tracking-tighter decoration-double underline">
+            Let's build something!
           </div>
-          <ul className="space-y-2 text-sm opacity-90">
+          <div className="grid gap-4 sm:grid-cols-2">
             {DATA.socials.map((s) => (
-              <li key={s.label}>
-                <span
-                  onClick={() => location.href = s.href}
-                  className="inline-flex items-center gap-2 cursor-pointer">
-                  <s.icon className="h-4 w-4" /> {s.label}
-                </span>
-              </li>
+              <Button
+                key={s.label}
+                onClick={() => (location.href = s.href)}
+                bgColor="bg-[var(--surface)]"
+                className="text-lg py-4 w-full justify-center"
+                icon={s.icon}
+              >
+                {s.label}
+              </Button>
             ))}
-          </ul>
-        </motion.div>
+          </div>
+          <div className="mt-10 border-t-4 border-[var(--border)] pt-6 font-bold text-xl uppercase font-mono">
+            Direct Email: <span className="text-[var(--accent-3)] break-all">{DATA.email}</span>
+          </div>
+        </Card>
       </div>
     </Section>
   );

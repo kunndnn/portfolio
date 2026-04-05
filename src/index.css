@@ -1,2 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;700;900&display=swap');
 @import "tailwindcss";
+
 @custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-mono: "Space Mono", monospace;
+  --font-sans: "Inter", sans-serif;
+}
+
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --text: #000000;
+  --accent: #00CFFF;
+  --accent-2: #00FF00;
+  --accent-3: #FF00FF;
+  --border: #000000;
+  --shadow-color: #000000;
+  --border-width: 3px;
+  --shadow-offset: 6px;
+}
+
+.dark {
+  --bg: #000000;
+  --surface: #111111;
+  --text: #ffffff;
+  --accent: #00CFFF;
+  --accent-2: #00FF00;
+  --accent-3: #FF00FF;
+  --border: #ffffff;
+  --shadow-color: #ffffff;
+}
+
+@layer base {
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .brutalist-card {
+    background-color: var(--surface);
+    color: var(--text);
+    border: var(--border-width) solid var(--border);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0px 0px var(--shadow-color);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .brutalist-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: calc(var(--shadow-offset) + 2px) calc(var(--shadow-offset) + 2px) 0px 0px var(--shadow-color);
+  }
+
+  .brutalist-button {
+    background-color: var(--accent);
+    color: #000000;
+    border: 2px solid var(--border);
+    box-shadow: 3px 3px 0px 0px var(--shadow-color);
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.1s;
+    cursor: pointer;
+  }
+
+  .brutalist-button svg {
+    color: inherit;
+  }
+
+  .dark .brutalist-button {
+    color: var(--text);
+  }
+
+  /* Specific override for accent buttons to keep black text for contrast */
+  .brutalist-button[class*="bg-[var(--accent)"],
+  .brutalist-button[class*="bg-[var(--accent-2)"],
+  .brutalist-button[class*="bg-[var(--accent-3)"] {
+    color: #000000 !important;
+  }
+
+  .brutalist-button:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px 0px var(--shadow-color);
+  }
+
+  .brutalist-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px 0px var(--shadow-color);
+  }
+
+  .brutalist-badge {
+    @apply border-2 border-black px-2 py-1 text-xs font-black uppercase text-black;
+    background-color: var(--accent-2);
+    box-shadow: 2px 2px 0px 0px var(--shadow-color);
+  }
+}
