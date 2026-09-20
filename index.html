@@ -4,9 +4,35 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
+    <title>Kundan — Backend &amp; Full-Stack Developer</title>
+    <meta name="description" content="Backend and full-stack developer with 3+ years of experience building scalable applications with Node.js, Laravel, Python, MongoDB, and MySQL." />
+    <meta name="theme-color" content="#0B0D12" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Kundan — Backend &amp; Full-Stack Developer" />
+    <meta property="og:description" content="Backend and full-stack developer with 3+ years of experience building scalable applications with Node.js, Laravel, Python, MongoDB, and MySQL." />
+    <meta property="og:url" content="https://kunndnn.github.io/portfolio/" />
+    <meta property="og:site_name" content="Kundan Portfolio" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Kundan — Backend &amp; Full-Stack Developer" />
+    <meta name="twitter:description" content="Backend and full-stack developer with 3+ years of experience building scalable applications with Node.js, Laravel, Python, MongoDB, and MySQL." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body>
+    <script>
+      (function() {
+        var saved = localStorage.getItem('deviceTheme');
+        var dark = saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (dark) document.documentElement.classList.add('dark');
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

@@ -1,12 +1,20 @@
-export default function Section({ id, title, children, className = "" }) {
+import { motion } from "framer-motion";
+
+export default function Section({ id, title, eyebrow, children, className = "" }) {
   return (
-    <section id={id} className={`scroll-mt-24 py-12 ${className}`}>
-      <div className="mb-10 flex items-center gap-4">
-        <h2 className="text-2xl sm:text-4xl font-black uppercase tracking-tighter font-mono bg-[var(--accent)] border-[3px] border-[var(--border)] rounded-xl px-4 py-2 shadow-[6px_6px_0px_0px_var(--shadow-color)]">
+    <section id={id} className={`scroll-mt-24 ${className}`}>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className="mb-12"
+      >
+        {eyebrow && <p className="eyebrow mb-2">{eyebrow}</p>}
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
           {title}
         </h2>
-        <div className="h-1 flex-1 bg-[var(--border)] opacity-30"></div>
-      </div>  
+      </motion.div>
       {children}
     </section>
   );

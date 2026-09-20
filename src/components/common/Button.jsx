@@ -1,32 +1,34 @@
 import { motion } from "framer-motion";
 
-export default function Button({ 
-  children, 
-  onClick, 
-  href, 
-  className = "", 
-  bgColor,
+export default function Button({
+  children,
+  onClick,
+  href,
+  className = "",
+  variant = "primary",
   icon: Icon,
   type = "button",
-  ...props 
+  ...props
 }) {
-  const finalBgColor = bgColor || (className.includes('bg-') ? '' : 'bg-[var(--accent)]');
-  const baseClasses = `brutalist-button ${finalBgColor} ${className}`;
-  
+  const variantClasses = {
+    primary: "button-primary",
+    secondary: "button-secondary",
+    ghost: "button-ghost",
+  };
+
+  const resolvedVariant = variantClasses[variant] || variantClasses.primary;
+  const baseClasses = `${resolvedVariant} ${className}`;
+
   const content = (
     <>
-      {Icon && <Icon className="h-5 w-5 pointer-events-none" style={{ color: 'inherit' }} />}
+      {Icon && <Icon className="h-4 w-4 shrink-0" />}
       {children}
     </>
   );
 
   if (href) {
     return (
-      <a 
-        href={href} 
-        className={baseClasses}
-        {...props}
-      >
+      <a href={href} className={baseClasses} {...props}>
         {content}
       </a>
     );
@@ -37,7 +39,7 @@ export default function Button({
       type={type}
       onClick={onClick}
       className={baseClasses}
-      whileTap={{ scale: 0.95 }}
+      whileTap={{ scale: 0.98 }}
       {...props}
     >
       {content}

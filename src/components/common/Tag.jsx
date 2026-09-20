@@ -1,6 +1,6 @@
-export default function Tag({ children }) {
+export default function Tag({ children, accent = false }) {
   return (
-    <span className="brutalist-badge">
+    <span className={accent ? "badge-accent" : "badge"}>
       {children}
     </span>
   );

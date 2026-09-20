@@ -1,38 +1,66 @@
 import Section from "./common/Section";
 import { DATA } from "../constants";
-import Card from "./common/Card";
 import Button from "./common/Button";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  initial: { opacity: 0, y: 16 },
+  animate: { opacity: 1, y: 0 },
+};
 
 export default function Contact() {
   return (
     <Section id="contact" title="Contact">
-      <div className="max-w-2xl">
-        <Card
-          initial={{ rotate: -1 }}
-          whileInView={{ rotate: 0 }}
-          className="p-10 bg-[var(--accent)]"
+      <motion.div
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true, margin: "-40px" }}
+        variants={{
+          animate: { transition: { staggerChildren: 0.1 } },
+        }}
+        className="max-w-2xl"
+      >
+        <motion.h3
+          variants={fadeUp}
+          transition={{ duration: 0.5 }}
+          className="text-3xl font-bold tracking-tight sm:text-4xl"
         >
-          <div className="mb-8 text-3xl font-black uppercase font-mono tracking-tighter decoration-double underline">
-            Let's build something!
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {DATA.socials.map((s) => (
+          Let&apos;s build something.
+        </motion.h3>
+        <motion.p
+          variants={fadeUp}
+          transition={{ duration: 0.5 }}
+          className="mt-4 text-[var(--text-muted)] leading-relaxed"
+        >
+          Have a project, opportunity, or interesting problem to discuss?
+          I&apos;m always open to new conversations.
+        </motion.p>
+
+        <motion.div
+          variants={fadeUp}
+          transition={{ duration: 0.5 }}
+          className="mt-8 flex flex-wrap gap-3"
+        >
+          <Button
+            onClick={() => (location.href = `mailto:${DATA.email}`)}
+            icon={null}
+          >
+            Email Me
+          </Button>
+          {DATA.socials
+            .filter((s) => s.label !== "Mail")
+            .map((s) => (
               <Button
                 key={s.label}
-                onClick={() => (location.href = s.href)}
-                bgColor="bg-[var(--surface)]"
-                className="text-lg py-4 w-full justify-center"
+                href={s.href}
+                variant="secondary"
                 icon={s.icon}
               >
                 {s.label}
               </Button>
             ))}
-          </div>
-          <div className="mt-10 border-t-4 border-[var(--border)] pt-6 font-bold text-xl uppercase font-mono">
-            Direct Email: <span className="text-[var(--accent-2)] break-all font-black">{DATA.email}</span>
-          </div>
-        </Card>
-      </div>
+        </motion.div>
+      </motion.div>
     </Section>
   );
 }
