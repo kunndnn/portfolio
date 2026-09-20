@@ -1,7 +1,6 @@
 import Section from "./common/Section";
 import { DATA } from "../constants";
-import Tag from "./common/Tag";
-import { ExternalLink, Code2 } from "lucide-react";
+import { ExternalLink, Code2, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const fadeUp = {
@@ -33,23 +32,36 @@ export default function Projects() {
         initial="initial"
         whileInView="animate"
         viewport={{ once: true, margin: "-40px" }}
-        variants={{
-          animate: { transition: { staggerChildren: 0.1 } },
-        }}
+        variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
       >
         {DATA.projects.map((p, i) => (
           <motion.div
             key={p.name}
             variants={fadeUp}
             transition={{ duration: 0.5 }}
-            className="card group overflow-hidden"
+            className="card group relative overflow-hidden"
           >
-            {/* Content */}
+            {/* Colored top accent */}
+            <div
+              className={`h-1 ${i === 0
+                  ? "bg-[var(--accent)]"
+                  : i === 1
+                    ? "bg-[var(--accent-secondary)]"
+                    : i === 2
+                      ? "bg-[var(--accent-tertiary)]"
+                      : "bg-[var(--text-muted)]"
+                }`}
+            />
+
             <div className="p-5 sm:p-6">
-              <h3 className="text-lg font-bold tracking-tight text-[var(--text)]">
-                {p.name}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
+              <div className="flex items-start justify-between gap-3">
+                <h3 className="text-lg font-bold tracking-tight text-[var(--text)]">
+                  {p.name}
+                </h3>
+                <ArrowUpRight className="h-4 w-4 shrink-0 text-[var(--text-muted)] opacity-0 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </div>
+
+              <p className="mt-2.5 text-sm leading-relaxed text-[var(--text-muted)]">
                 {p.description}
               </p>
 

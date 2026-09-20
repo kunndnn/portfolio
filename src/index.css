@@ -7,38 +7,40 @@
 }
 
 :root {
-  --bg: #F7F8FA;
+  --bg: #FAF9F6;
   --surface: #FFFFFF;
-  --surface-muted: #F1F3F5;
-  --text: #111318;
-  --text-muted: #646A73;
-  --accent: #4F46E5;
-  --accent-secondary: #7C3AED;
-  --accent-glow: rgba(79, 70, 229, 0.12);
-  --border: rgba(17, 19, 24, 0.08);
-  --border-strong: rgba(17, 19, 24, 0.15);
-  --shadow: 0 1px 3px rgba(17, 19, 24, 0.04), 0 4px 12px rgba(17, 19, 24, 0.06);
-  --shadow-md: 0 2px 8px rgba(17, 19, 24, 0.06), 0 8px 24px rgba(17, 19, 24, 0.08);
-  --shadow-lg: 0 4px 12px rgba(17, 19, 24, 0.08), 0 16px 48px rgba(17, 19, 24, 0.10);
+  --surface-muted: #F3F0EB;
+  --text: #1A1715;
+  --text-muted: #7A7267;
+  --accent: #E85D3A;
+  --accent-secondary: #C2185B;
+  --accent-tertiary: #2E7D6F;
+  --accent-glow: rgba(232, 93, 58, 0.08);
+  --border: rgba(26, 23, 21, 0.08);
+  --border-strong: rgba(26, 23, 21, 0.15);
+  --shadow: 0 1px 2px rgba(26, 23, 21, 0.04), 0 4px 12px rgba(26, 23, 21, 0.05);
+  --shadow-md: 0 2px 6px rgba(26, 23, 21, 0.06), 0 8px 24px rgba(26, 23, 21, 0.07);
+  --shadow-lg: 0 4px 12px rgba(26, 23, 21, 0.08), 0 20px 48px rgba(26, 23, 21, 0.09);
   --radius: 0.75rem;
   --radius-lg: 1rem;
   --radius-xl: 1.25rem;
 }
 
 .dark {
-  --bg: #0B0D12;
-  --surface: #11141B;
-  --surface-muted: #171B24;
-  --text: #F5F7FA;
-  --text-muted: #9CA3AF;
-  --accent: #6366F1;
-  --accent-secondary: #8B5CF6;
-  --accent-glow: rgba(99, 102, 241, 0.15);
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.14);
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.20), 0 4px 12px rgba(0, 0, 0, 0.25);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.30);
-  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.30), 0 16px 48px rgba(0, 0, 0, 0.35);
+  --bg: #121110;
+  --surface: #1C1A17;
+  --surface-muted: #242220;
+  --text: #F0EDE8;
+  --text-muted: #9A9389;
+  --accent: #F0704A;
+  --accent-secondary: #E05580;
+  --accent-tertiary: #3DA896;
+  --accent-glow: rgba(240, 112, 74, 0.12);
+  --border: rgba(240, 237, 232, 0.07);
+  --border-strong: rgba(240, 237, 232, 0.13);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.25), 0 20px 48px rgba(0, 0, 0, 0.3);
 }
 
 @layer base {
@@ -100,7 +102,7 @@
     border: 1px solid var(--border);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow);
-    transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
   }
 
   .card:hover {
@@ -121,16 +123,17 @@
     gap: 0.5rem;
     cursor: pointer;
     transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
-    box-shadow: 0 1px 3px rgba(79, 70, 229, 0.25);
+    box-shadow: 0 1px 3px rgba(232, 93, 58, 0.2);
   }
 
   .button-primary:hover {
     background-color: var(--accent-secondary);
-    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.35);
+    box-shadow: 0 2px 8px rgba(232, 93, 58, 0.3);
+    transform: translateY(-1px);
   }
 
   .button-primary:active {
-    transform: translateY(1px);
+    transform: translateY(0);
   }
 
   .button-secondary {
@@ -200,17 +203,31 @@
   }
 
   .glass {
-    background-color: color-mix(in srgb, var(--surface) 70%, transparent);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background-color: color-mix(in srgb, var(--surface) 72%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
 
   .eyebrow {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--accent);
+  }
+
+  .grain {
+    position: relative;
+  }
+
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    border-radius: inherit;
   }
 }
 

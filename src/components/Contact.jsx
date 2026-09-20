@@ -15,22 +15,22 @@ export default function Contact() {
         initial="initial"
         whileInView="animate"
         viewport={{ once: true, margin: "-40px" }}
-        variants={{
-          animate: { transition: { staggerChildren: 0.1 } },
-        }}
+        variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
         className="max-w-2xl"
       >
         <motion.h3
           variants={fadeUp}
           transition={{ duration: 0.5 }}
-          className="text-3xl font-bold tracking-tight sm:text-4xl"
+          className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
         >
-          Let&apos;s build something.
+          Let&apos;s build something{" "}
+          <span className="text-[var(--accent)]">together.</span>
         </motion.h3>
+
         <motion.p
           variants={fadeUp}
           transition={{ duration: 0.5 }}
-          className="mt-4 text-[var(--text-muted)] leading-relaxed"
+          className="mt-4 text-[var(--text-muted)] leading-relaxed max-w-md"
         >
           Have a project, opportunity, or interesting problem to discuss?
           I&apos;m always open to new conversations.
@@ -41,21 +41,13 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="mt-8 flex flex-wrap gap-3"
         >
-          <Button
-            onClick={() => (location.href = `mailto:${DATA.email}`)}
-            icon={null}
-          >
+          <Button onClick={() => (location.href = `mailto:${DATA.email}`)}>
             Email Me
           </Button>
           {DATA.socials
             .filter((s) => s.label !== "Mail")
             .map((s) => (
-              <Button
-                key={s.label}
-                href={s.href}
-                variant="secondary"
-                icon={s.icon}
-              >
+              <Button key={s.label} href={s.href} variant="secondary" icon={s.icon}>
                 {s.label}
               </Button>
             ))}

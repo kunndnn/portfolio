@@ -15,24 +15,25 @@ export default function Skills() {
         initial="initial"
         whileInView="animate"
         viewport={{ once: true, margin: "-40px" }}
-        variants={{
-          animate: { transition: { staggerChildren: 0.08 } },
-        }}
+        variants={{ animate: { transition: { staggerChildren: 0.08 } } }}
       >
         {DATA.skills.map((group) => (
           <motion.div
             key={group.group}
             variants={fadeUp}
             transition={{ duration: 0.4 }}
-            className="card p-5"
+            className="card p-5 relative overflow-hidden"
           >
+            {/* Subtle accent stripe */}
+            <div className="absolute top-0 left-0 h-full w-[3px] bg-gradient-to-b from-[var(--accent)] to-[var(--accent-tertiary)] opacity-30" />
+
             <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
               {group.group}
             </h3>
             <div className="flex flex-wrap gap-2">
               {group.items.map((s) => (
                 <span key={s.name} className="badge inline-flex items-center gap-1.5">
-                  <s.icon className="h-3 w-3 opacity-60" />
+                  <s.icon className="h-3 w-3 opacity-50" />
                   {s.name}
                 </span>
               ))}
