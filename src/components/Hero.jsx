@@ -46,7 +46,7 @@ export default function Hero() {
               className="text-5xl font-black tracking-tighter sm:text-7xl md:text-8xl lg:text-9xl uppercase leading-none sm:leading-[0.85]"
             >
               {DATA.title.split(' ').map((word, i) => (
-                <span key={i} className={i % 2 === 0 ? "block" : "block text-[var(--accent)] drop-shadow-[4px_4px_0px_var(--border)] sm:drop-shadow-[6px_6px_0px_var(--border)]"}>
+                <span key={i} className={i % 2 === 0 ? "block" : "block text-[var(--accent)] drop-shadow-[4px_4px_0px_var(--shadow-color)] sm:drop-shadow-[6px_6px_0px_var(--shadow-color)]"}>
                   {word}
                 </span>
               ))}
@@ -55,7 +55,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-6 sm:mt-10 text-xl sm:text-2xl font-black font-mono border-l-8 border-[var(--accent-2)] pl-6 uppercase tracking-tighter max-w-2xl"
+              className="mt-6 sm:mt-10 text-xl sm:text-2xl font-black font-mono border-l-8 border-[var(--accent)] pl-6 uppercase tracking-tighter max-w-2xl"
             >
               {DATA.tagline}
             </motion.p>
@@ -78,7 +78,7 @@ export default function Hero() {
               animate={{ rotate: -2, scale: 1, opacity: 1 }}
               transition={{ delay: 0.4 }}
               whileHover={{ rotate: 0, scale: 1.05 }}
-              className="p-6 md:p-10 bg-[var(--accent-2)]"
+              className="p-6 md:p-10 bg-[var(--accent)]"
               textColor="#000000"
             >
               <div className="mb-8 flex items-center gap-4 font-black uppercase tracking-widest text-lg">
@@ -86,7 +86,7 @@ export default function Hero() {
                 <span>{DATA.location}</span>
               </div>
 
-              <div className="bg-[var(--surface)] border-4 border-black p-6 mb-8 shadow-[8px_8px_0px_0px_var(--shadow-color)] text-[var(--text)]">
+              <div className="bg-[var(--surface)] border-[3px] border-[var(--border)] rounded-xl p-6 mb-8 shadow-[8px_8px_0px_0px_var(--shadow-color)] text-[var(--text)]">
                 {showSkills()}
               </div>
 

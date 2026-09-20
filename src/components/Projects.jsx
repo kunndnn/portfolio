@@ -16,7 +16,7 @@ export default function Projects() {
             className="p-6 flex flex-col justify-between bg-[var(--surface)]"
           >
             <div>
-              <h3 className="text-2xl font-black uppercase font-mono tracking-tighter bg-[var(--accent-2)] border-2 border-[var(--border)] px-3 py-1 inline-block mb-4 shadow-[4px_4px_0px_0px_var(--border)]">
+              <h3 className="text-2xl font-black uppercase font-mono tracking-tighter bg-[var(--accent-2)] border-[3px] border-[var(--border)] px-3 py-1 inline-block mb-4 rounded-xl shadow-[4px_4px_0px_0px_var(--shadow-color)]">
                 {p.name}
               </h3>
               <p className="mt-2 text-lg font-medium leading-tight">{p.description}</p>

@@ -18,7 +18,7 @@ export default function Skills() {
             className="p-6"
             style={{ transform: `rotate(${i % 2 === 0 ? -1 : 1}deg)` }}
           >
-            <h3 className="mb-6 text-xl font-black uppercase font-mono bg-black text-white px-3 py-1 inline-block shadow-[4px_4px_0px_0px_var(--accent)]">
+            <h3 className="mb-6 text-xl font-black uppercase font-mono bg-[var(--text)] text-[var(--bg)] px-3 py-1 inline-block rounded-lg shadow-[4px_4px_0px_0px_var(--accent)]">
               {group.group}
             </h3>
             <ul className="space-y-6">
@@ -26,19 +26,19 @@ export default function Skills() {
                 <li key={s.name} className="group">
                   <div className="mb-2 flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="p-2 border-2 border-[var(--border)] bg-[var(--surface)] text-[var(--text)] group-hover:bg-[var(--accent-2)] group-hover:text-black transition-colors">
+                      <div className="p-2 border-[3px] border-[var(--border)] rounded-lg bg-[var(--surface)] text-[var(--text)] group-hover:bg-[var(--accent)] group-hover:text-black transition-colors">
                         <s.icon className="h-5 w-5" />
                       </div>
                       <span className="font-bold uppercase tracking-tight">{s.name}</span>
                     </div>
                   </div>
                   {s.level && (
-                    <div className="border-2 border-[var(--border)] h-4 bg-[var(--surface)] shadow-[2px_2px_0px_0px_var(--shadow-color)] overflow-hidden">
+                    <div className="border-[3px] border-[var(--border)] h-4 rounded-lg bg-[var(--surface)] shadow-[2px_2px_0px_0px_var(--shadow-color)] overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${clamp01(s.level)}%` }}
                         transition={{ duration: 1, ease: "easeOut" }}
-                        className="h-full bg-[var(--accent-2)] border-r-2 border-[var(--border)]"
+                        className="h-full bg-[var(--accent)] border-r-[3px] border-[var(--border)] rounded-lg"
                       />
                     </div>
                   )}

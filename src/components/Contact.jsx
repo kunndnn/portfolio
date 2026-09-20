@@ -10,7 +10,7 @@ export default function Contact() {
         <Card
           initial={{ rotate: -1 }}
           whileInView={{ rotate: 0 }}
-          className="p-10 bg-[var(--accent-2)]"
+          className="p-10 bg-[var(--accent)]"
         >
           <div className="mb-8 text-3xl font-black uppercase font-mono tracking-tighter decoration-double underline">
             Let's build something!
@@ -29,7 +29,7 @@ export default function Contact() {
             ))}
           </div>
           <div className="mt-10 border-t-4 border-[var(--border)] pt-6 font-bold text-xl uppercase font-mono">
-            Direct Email: <span className="text-[var(--accent-3)] break-all">{DATA.email}</span>
+            Direct Email: <span className="text-[var(--accent-2)] break-all font-black">{DATA.email}</span>
           </div>
         </Card>
       </div>

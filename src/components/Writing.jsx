@@ -16,7 +16,7 @@ export default function Writing() {
             className="p-8 cursor-pointer bg-[var(--surface)] group flex flex-col items-center text-center"
             onClick={() => handleClick(post.href)}
           >
-            <div className="brutalist-badge bg-[var(--accent-3)] mb-4 text-xs font-mono">
+            <div className="brutalist-badge bg-[var(--accent)] mb-4 text-xs font-mono">
               {post.date}
             </div>
             <h3 className="text-xl font-black uppercase font-mono tracking-tighter group-hover:underline decoration-4">

@@ -6,7 +6,7 @@ export default function About() {
     <Section id="about" title="About">
       <div className="grid gap-8 lg:gap-12 lg:grid-cols-3">
         <div className="lg:col-span-2">
-          <p className="text-lg sm:text-xl font-bold leading-tight uppercase font-mono bg-[var(--accent-2)] text-black p-5 border-2 border-black shadow-[4px_4px_0px_0px_var(--border)] mb-6">
+          <p className="text-lg sm:text-xl font-bold leading-tight uppercase font-mono bg-[var(--accent-2)] text-black p-5 border-[3px] border-[var(--border)] rounded-xl shadow-[4px_4px_0px_0px_var(--shadow-color)] mb-6">
             I’m a Backend Developer with strong expertise in Node.js and Laravel, building secure, scalable, and high-performing applications.
           </p>
           <p className="leading-relaxed font-medium text-lg">

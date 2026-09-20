@@ -19,7 +19,7 @@ export default function Experience() {
                 <h3 className="text-2xl font-black uppercase font-mono tracking-tighter leading-tight group-hover:text-[var(--accent-3)] transition-colors">
                   {exp.role}
                 </h3>
-                <p className="font-bold bg-black text-white px-3 py-1 inline-block uppercase tracking-widest text-sm">
+                <p className="font-bold bg-[var(--text)] text-[var(--bg)] px-3 py-1 inline-block uppercase tracking-widest text-sm rounded-lg">
                   {exp.company}
                 </p>
               </div>
@@ -30,7 +30,7 @@ export default function Experience() {
             <ul className="grid gap-4">
               {exp.bullets.map((b, idx) => (
                 <li key={idx} className="flex gap-3 text-lg font-medium leading-snug">
-                  <span className="text-[var(--accent-2)] font-black text-2xl flex-shrink-0 mt-[-2px]">»</span>
+                  <span className="text-[var(--accent)] font-black text-2xl flex-shrink-0 mt-[-2px]">»</span>
                   <span>{b}</span>
                 </li>
               ))}
