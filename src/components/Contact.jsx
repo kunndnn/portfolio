@@ -1,6 +1,7 @@
 import Section from "./common/Section";
 import { DATA } from "../constants";
 import Button from "./common/Button";
+import BuyMeACoffee from "./BuyMeACoffee";
 import { motion } from "framer-motion";
 
 const fadeUp = {
@@ -16,7 +17,7 @@ export default function Contact() {
         whileInView="animate"
         viewport={{ once: true, margin: "-40px" }}
         variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
-        className="max-w-2xl"
+        className="max-w-3xl"
       >
         <motion.h3
           variants={fadeUp}
@@ -39,7 +40,7 @@ export default function Contact() {
         <motion.div
           variants={fadeUp}
           transition={{ duration: 0.5 }}
-          className="mt-8 flex flex-wrap gap-3"
+          className="mt-8 flex flex-wrap items-center gap-3"
         >
           <Button onClick={() => (location.href = `mailto:${DATA.email}`)}>
             Email Me
@@ -51,6 +52,7 @@ export default function Contact() {
                 {s.label}
               </Button>
             ))}
+          <BuyMeACoffee />
         </motion.div>
       </motion.div>
     </Section>

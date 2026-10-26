@@ -190,4 +190,5 @@ export const DATA = {
   ],
   // --- CTA assets
   resumeUrl: CV,
+  buyMeACoffeeUrl: "https://buymeacoffee.com/kunndnn",
 };

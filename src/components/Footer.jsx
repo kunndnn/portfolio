@@ -1,4 +1,5 @@
 import { DATA } from "../constants";
+import BuyMeACoffee from "./BuyMeACoffee";
 
 export default function Footer() {
   return (
@@ -7,7 +8,7 @@ export default function Footer() {
         <p className="text-sm text-[var(--text-muted)]">
           &copy; {new Date().getFullYear()} {DATA.name}. Built with care.
         </p>
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-3">
           {DATA.socials.map((s) => (
             <a
               key={s.label}
@@ -19,6 +20,11 @@ export default function Footer() {
               {s.label}
             </a>
           ))}
+          <span
+            aria-hidden="true"
+            className="hidden h-3 w-px bg-[var(--border-strong)] sm:block"
+          />
+          <BuyMeACoffee variant="icon" />
         </div>
       </div>
     </footer>
